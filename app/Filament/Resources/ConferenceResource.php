@@ -17,7 +17,7 @@ class ConferenceResource extends Resource
 {
     protected static ?string $model = Conference::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
 
     public static function form(Form $form): Form
     {
@@ -36,15 +36,17 @@ class ConferenceResource extends Resource
                 Forms\Components\Select::make('status')
                     ->required()
                     ->options([
-                        'draft' => 'Pending',
-                        'reviewing' => '',
-                        'done' => 'Done',
+                        'pending' => 'Pending',
+                        'unscheduled' => 'Unscheduled',
+                        'scheduled' => 'Scheduled',
                     ]),
                 Forms\Components\TextInput::make('region')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('venue_id')
                     ->relationship('venue', 'name'),
+               
+                    
             ]);
     }
 

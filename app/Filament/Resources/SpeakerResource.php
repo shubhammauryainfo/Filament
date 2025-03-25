@@ -17,7 +17,7 @@ class SpeakerResource extends Resource
 {
     protected static ?string $model = Speaker::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
     public static function form(Form $form): Form
     {
@@ -30,7 +30,7 @@ class SpeakerResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('bio')
+                Forms\Components\TextInput::make('bio')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('twitter_handle')
